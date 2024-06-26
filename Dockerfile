@@ -49,4 +49,12 @@ RUN curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | gpg --dearm
     apt-get install -yq nvidia-container-toolkit && \
     nvidia-ctk runtime configure --runtime=docker
 
+## USEFUL TOOLS
+RUN apt-get install -yq \
+    iproute2 \
+    iputils-ping \
+    tmux \
+    nano \
+    vim
+
 ENTRYPOINT [ "dind", "dockerd", "--host=unix:///var/run/docker.sock"]
